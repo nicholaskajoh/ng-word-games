@@ -4,8 +4,8 @@
  * @version 1.0
  */
 /*
-Plugin Name: Naija Guru stories
-Description: Engage your audience with an  interactive pidgen story with  emojis for added excitement.
+Plugin Name: NG Word Games
+Description: Word games plugin
 Version: 1.0
 Author: Naija Guru 
 */
@@ -23,7 +23,6 @@ After plenty plenty plan, na so dem call one smart cat 🐱 wey dey nearby to co
 From dat day, dem no get problem for di farm again. Di animals happy sotay dem dey laugh, and di cat just dey siddon proud say e don solve di mata. 😄
 
 And so, peace return to di small village, and di animals continue to chop deir farm with joy. Na here e finish hope say the story make brain
-
 ";
 
 
