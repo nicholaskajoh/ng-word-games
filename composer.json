@@ -14,8 +14,9 @@
             "name": "Naija Guru",
             "email": "kajohterna@gmail.com"
         }
-    ]
+    ],
 
-    
-   
+    "require-dev": {
+        "phpunit/phpunit": "*"
+    }
 }
