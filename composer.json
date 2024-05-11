@@ -16,7 +16,7 @@
         }
     ],
 
-    "require-dev": {
-        "phpunit/phpunit": "*"
+    "require": {
+        "phpunit/phpunit": "^10"
     }
 }
