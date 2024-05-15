@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 require_once 'naija_guru.php'; // Include the file with get_story()
 
-class TestSample extends TestCase
+class Go extends TestCase
 {
 
   /**
@@ -22,6 +22,8 @@ class TestSample extends TestCase
    */
   public function testGetStoryStartsWithOnceUponATime()
   {
+    $story = get_story();
+ 
     $story = get_story();
     $this->assertStringContainsString('upon', $story, '', true); // Case-insensitive
   }

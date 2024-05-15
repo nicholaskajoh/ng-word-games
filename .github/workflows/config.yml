@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v3
 
        
+        
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
@@ -26,9 +27,12 @@ jobs:
       - name: Install dependencies
         run: composer update 
 
+      - name: install subversions
+        run:  sudo apt-get install subversion
+ 
+
       - name: Run tests
         run:  ./vendor/bin/phpunit
-
  
   
   

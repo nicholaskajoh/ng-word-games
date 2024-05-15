@@ -30,7 +30,7 @@ services:
     depends_on:
       - db
     environment:
-      - WORDPRESS_DB_HOST=db
+      - WORDPRESS_DB_HOST=db 
       - WORDPRESS_DB_USER=ngwordgames
       - WORDPRESS_DB_PASSWORD=ngwordgames
       - WORDPRESS_DB_NAME=ngwordgames
