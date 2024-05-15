@@ -13,15 +13,19 @@ jobs:
 
     services:
       mysql:
-        image: mysql:5.7
+        image: mysql:8.0.29
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: ngwordgames
-          MYSQL_USER: ngwordgames
-          MYSQL_PASSWORD: ngwordgames
+          MYSQL_ROOT_PASSWORD: pass
+          MYSQL_DATABASE: dev
         ports:
-          - 33061:33061
-        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
+          - "33061:33061"
+        options: 
+          --health-cmd "mysqladmin ping -ppass"
+          --health-interval 10s
+          --health-start-period 10s
+          --health-timeout 5s
+          --health-retries 10
+     
 
     steps:
       - name: Checkout code
