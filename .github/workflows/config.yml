@@ -34,13 +34,14 @@ jobs:
           tools: phpunit
 
       - name: Install dependencies
-        run: composer update 
- 
+        run: composer update
+
       - name: Download WordPress archive
         run: |
-          curl -sSL -o /tmp/wordpress.tar.gz https://wordpress.org/wordpress-5.7.tar.gz
+          curl -sSL -o /tmp/wordpress.zip https://wordpress.org/latest.zip   
 
-
+      - name: Extract WordPress
+        run: unzip -q /tmp/wordpress.zip -d /tmp/wordpress   
       - name: Run WordPress unit tests
         env:
           DB_NAME: ngwordgames
@@ -48,10 +49,9 @@ jobs:
           DB_PASSWORD: ngwordgames
           DB_HOST: localhost
           DB_PORT: 33061
-        run:   |
-             chmod +x ./bin/install-wp-tests.sh
-             ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest
-
+        run: |
+          chmod +x ./bin/install-wp-tests.sh
+          ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest
 
       - name: Run tests
         run: ./vendor/bin/phpunit
