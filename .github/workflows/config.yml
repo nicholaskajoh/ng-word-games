@@ -57,6 +57,8 @@ jobs:
           DB_HOST: localhost
           DB_PORT: 33061
         run: |
+          echo 'Reinstalling will delete the existing test database (ngwordgames)'
+          echo 'Automatically confirming reinstallation.'
           chmod +x ./bin/install-wp-tests.sh
           ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest
 
