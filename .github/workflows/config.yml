@@ -29,6 +29,8 @@ jobs:
 
       - name: install subversions
         run:  sudo apt-get install subversion
+      - name: Install WordPress testing environment
+        run: ./bin/install-wp-tests.sh ngwordgames ngwordgames ngwordgames 127.0.0.1:33061
  
 
       - name: Run tests
