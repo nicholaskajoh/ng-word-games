@@ -43,9 +43,11 @@ jobs:
           DB_PASSWORD: ngwordgames
           DB_HOST: localhost
           DB_PORT: 33061
-        run: |
-          chmod +x ./bin/install-wp-tests.sh
-          ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest
+        run:   |
+                  chmod +x ./bin/install-wp-tests.sh
+                  ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest
+                  echo "Contents of downloaded file:"
+                  cat /tmp/wordpress.tar.gz
 
       - name: Run tests
         run: ./vendor/bin/phpunit
