@@ -54,7 +54,7 @@ jobs:
           DB_NAME: ngwordgames
           DB_USER: ngwordgames
           DB_PASSWORD: ngwordgames
-          DB_HOST: localhost
+          DB_HOST: localhost 
           DB_PORT: 33061
         run: |
           echo 'Reinstalling will delete the existing test database (ngwordgames)'
