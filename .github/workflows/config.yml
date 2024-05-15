@@ -20,7 +20,7 @@ jobs:
           MYSQL_USER: ngwordgames
           MYSQL_PASSWORD: ngwordgames
         ports:
-          - 33061:3306
+          - 33061:33061
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
