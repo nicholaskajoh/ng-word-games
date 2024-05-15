@@ -15,8 +15,10 @@ jobs:
       mysql:
         image: mysql:8.0.29
         env:
-          MYSQL_ROOT_PASSWORD:  
+          MYSQL_ROOT_PASSWORD: root
           MYSQL_DATABASE: ngwordgames
+          MYSQL_USER: ngwordgames
+          MYSQL_PASSWORD: ngwordgames
         ports:
           - "3306:3306"
         options: 
