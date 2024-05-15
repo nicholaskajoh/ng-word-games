@@ -35,9 +35,10 @@ jobs:
 
       - name: Install dependencies
         run: composer update 
-
-      - name: Copy WordPress archive
-        run: cp tests/wordpress-5.7.tar.gz /tmp/wordpress.tar.gz
+ 
+      - name: Download WordPress archive
+        run: |
+          curl -sSL -o /tmp/wordpress.tar.gz https://wordpress.org/wordpress-5.7.tar.gz
 
 
       - name: Run WordPress unit tests
