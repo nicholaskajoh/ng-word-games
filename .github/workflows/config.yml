@@ -15,10 +15,10 @@ jobs:
       mysql:
         image: mysql:8.0.29
         env:
-          MYSQL_ROOT_PASSWORD: root
+          MYSQL_ROOT_PASSWORD: ngwordgames
           MYSQL_DATABASE: ngwordgames
         ports:
-          - "33061:3306"
+          - "3306:3306"
         options: 
           --health-cmd "mysqladmin ping -ppass"
           --health-interval 10s
