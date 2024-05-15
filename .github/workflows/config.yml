@@ -20,7 +20,7 @@ jobs:
           MYSQL_USER: ngwordgames
           MYSQL_PASSWORD: ngwordgames
         ports:
-              - 33061:33061 
+          - 33061:33061
         options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
@@ -38,10 +38,10 @@ jobs:
 
       - name: Download WordPress archive
         run: |
-          curl -sSL -o /tmp/wordpress.zip https://wordpress.org/latest.zip  # Assuming it's a zip file
+          curl -sSL -o /tmp/wordpress.zip https://wordpress.org/latest.zip   
 
       - name: Extract WordPress
-        run: unzip -q /tmp/wordpress.zip -d /tmp/wordpress  # Extract the zip file
+        run: unzip -q /tmp/wordpress.zip -d /tmp/wordpress   
 
       - name: Run WordPress unit tests
         env:
