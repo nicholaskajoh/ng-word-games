@@ -1,40 +1,51 @@
 name: NG Word Games Plugin Test
 on:
-  push: 
+  push:
     branches:
-    - 'main'
+      - 'main'
   pull_request:
     branches:
-    - 'main'
+      - 'main'
 
 jobs:
- test:
+  test:
     runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:5.7
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: ngwordgames
+          MYSQL_USER: ngwordgames
+          MYSQL_PASSWORD: ngwordgames
+        ports:
+          - 33061:3306
+        options: --health-cmd="mysqladmin ping" --health-interval=10s --health-timeout=5s --health-retries=3
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
 
-       
-        
       - name: Set up PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '8.1'
           tools: phpunit
 
-
       - name: Install dependencies
         run: composer update 
 
-      - name: install subversions
-        run:  sudo apt-get install subversion
-      - name: Install WordPress testing environment
-        run: chmod +x ./bin/install-wp-tests.sh && ./bin/install-wp-tests.sh ngwordgames ngwordgames ngwordgames 127.0.0.1:33061 latest
- 
+      - name: Run WordPress unit tests
+        env:
+          DB_NAME: ngwordgames
+          DB_USER: ngwordgames
+          DB_PASSWORD: ngwordgames
+          DB_HOST: localhost
+          DB_PORT: 33061
+        run: |
+          chmod +x ./bin/install-wp-tests.sh
+          ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest
 
       - name: Run tests
-        run:  ./vendor/bin/phpunit
- 
-  
-  
+        run: ./vendor/bin/phpunit
