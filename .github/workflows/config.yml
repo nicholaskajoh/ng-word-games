@@ -64,6 +64,6 @@ jobs:
 
       - name: Disable PHPMailer
         run: |
-          sed -i 's/require_once/#require_once/g' /path/to/wordpress-tests-lib/includes/mock-mailer.php   
+             sed -i 's/require_once/#require_once/g' /path/to/wordpress/tests/phpunit/includes/mock-mailer.php
       - name: Run tests
         run: ./vendor/bin/phpunit
