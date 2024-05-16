@@ -61,6 +61,5 @@ jobs:
           echo 'Automatically confirming reinstallation.'
           chmod +x ./bin/install-wp-tests.sh
           ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest <<< 'y'
-
       - name: Run tests
         run: ./vendor/bin/phpunit
