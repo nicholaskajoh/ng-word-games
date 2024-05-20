@@ -33,7 +33,6 @@ function _manually_load_plugin() {
 }
 
 tests_add_filter( 'muplugins_loaded', '_manually_load_plugin' );
- 
 
 
 // Start up the WP testing environment.

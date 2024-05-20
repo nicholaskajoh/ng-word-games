@@ -1,1 +1,1 @@
-{"version":1,"defects":{"Go::testGetStoryStartsWithOnceUponATime":7},"times":{"Go::testGetStoryReturnsString":0.783,"Go::testGetStoryStartsWithOnceUponATime":0.084}}
+{"version":1,"defects":{"Go::testGetStoryStartsWithOnceUponATime":7},"times":{"Go::testGetStoryReturnsString":0.681,"Go::testGetStoryStartsWithOnceUponATime":0.045}}

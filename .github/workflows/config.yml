@@ -62,8 +62,6 @@ jobs:
           chmod +x ./bin/install-wp-tests.sh
           ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest <<< 'y'
 
-      - name: Disable PHPMailer
-        run: |
-             sed -i 's/require_once/#require_once/g' /path/to/wordpress/tests/phpunit/includes/mock-mailer.php
+ 
       - name: Run tests
         run: ./vendor/bin/phpunit
