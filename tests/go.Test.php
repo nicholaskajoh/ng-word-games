@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 
 require_once 'naija_guru.php'; // Include the file with get_story()
 
-class Goo extends TestCase
+class Go extends TestCase
 {
 
   /**
