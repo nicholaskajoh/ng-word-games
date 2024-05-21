@@ -9,7 +9,7 @@
   <coverage/>
   <testsuites>
     <testsuite name="testing">
-      <file>/mnt/c/webapps/phptest/tests/go.Test.php</file>
+      <file>/mnt/c/webapps/phptest/tests/Goo.Test.php</file>
     </testsuite>
   </testsuites>
 </phpunit>
