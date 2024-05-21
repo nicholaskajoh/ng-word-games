@@ -7,10 +7,11 @@
   convertWarningsToExceptions="true"
 >
   <coverage/>
-  <testsuites>
-    <testsuite name="testing">
-      <file>/mnt/c/webapps/phptest/tests/go.Test.php</file>
-    </testsuite>
+   <testsuites>
+    <testsuite name="All tests">
+      <directory>./tests/</directory>  </testsuite>
   </testsuites>
 </phpunit>
+
+ 
  

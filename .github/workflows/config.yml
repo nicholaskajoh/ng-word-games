@@ -69,4 +69,4 @@ jobs:
           ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest <<< 'y'
 
       - name: Run tests
-        run: phpunit tests/go.Test.php
+        run: ./vendor/bin/phpunit
