@@ -48,8 +48,8 @@ jobs:
 
       - name: Extract WordPress
         run: |
-          unzip -q /tmp/wordpress.zip -d /tmp/
-          mv /tmp/wordpress /tmp/wordpress
+            unzip -q /tmp/wordpress.zip -d /tmp
+          
 
       - name: Debug - List directory contents
         run: |
