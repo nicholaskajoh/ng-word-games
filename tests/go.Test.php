@@ -30,4 +30,3 @@ class Go extends TestCase
   // Add more test cases here to cover different scenarios
 }
 
-?>
