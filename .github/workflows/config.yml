@@ -1,0 +1,72 @@
+name: NG Word Games Plugin Test
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+    branches:
+      - 'main'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      mysql:
+        image: mysql:8.0.29
+        env:
+          MYSQL_ROOT_PASSWORD: root
+          MYSQL_DATABASE: ngwordgames
+          MYSQL_USER: ngwordgames
+          MYSQL_PASSWORD: ngwordgames
+        ports:
+          - "3306:3306"
+        options: 
+          --health-cmd "mysqladmin ping -proot"
+          --health-interval 10s
+          --health-start-period 10s
+          --health-timeout 5s
+          --health-retries 10
+     
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+          tools: phpunit
+
+      - name: Install dependencies
+        run: composer update
+
+      - name: Download WordPress archive
+        run: |
+          curl -sSL -o /tmp/wordpress.zip https://wordpress.org/latest.zip   
+
+      - name: Extract WordPress
+        run: |
+            unzip -q /tmp/wordpress.zip -d /tmp
+          
+
+      - name: Debug - List directory contents
+        run: |
+          ls -al /tmp/wordpress/wp-includes/PHPMailer/
+
+      - name: Run WordPress unit tests
+        env:
+          DB_NAME: ngwordgames
+          DB_USER: ngwordgames
+          DB_PASSWORD: ngwordgames
+          DB_HOST: 127.0.0.1
+          DB_PORT: 3306
+        run: |
+          echo 'Reinstalling will delete the existing test database (ngwordgames)'
+          echo 'Automatically confirming reinstallation.'
+          chmod +x ./bin/install-wp-tests.sh
+          ./bin/install-wp-tests.sh $DB_NAME $DB_USER $DB_PASSWORD $DB_HOST $DB_PORT latest <<< 'y'
+
+      - name: Run tests
+        run: ./vendor/bin/phpunit

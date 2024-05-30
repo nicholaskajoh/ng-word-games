@@ -1,2 +1,2 @@
-# ng-word-games
+ # ng-word-games
 Word games WordPress plugin.

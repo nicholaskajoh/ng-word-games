@@ -1,0 +1,25 @@
+{
+    "name": "jimmt-tech/ng-word-games",
+    "description": "Word games plugin",
+    "autoload": {
+        "psr-4": {
+            "JimmtTech\\NgWordGames\\": "src/"
+        }
+    },
+    
+    
+
+    "authors": [
+        {
+            "name": "Naija Guru",
+            "email": "kajohterna@gmail.com"
+        }
+    ],
+
+    "require": {
+        "phpunit/phpunit": "^10"
+    },
+    "require-dev": {
+        "yoast/phpunit-polyfills": "^2.0"
+    }
+}

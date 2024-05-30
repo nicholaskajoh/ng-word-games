@@ -1,0 +1,40 @@
+     
+services:
+  db:
+    container_name: db
+
+    image: mariadb:10.6.4-focal
+    command: '--default-authentication-plugin=mysql_native_password'
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=ngwordgames
+      - MYSQL_DATABASE=ngwordgames
+      - MYSQL_USER=ngwordgames
+      - MYSQL_PASSWORD=ngwordgames
+    expose:
+      - 3306
+      - 33060
+  wordpress:
+    container_name: wordpress
+
+    build: ./
+ 
+    ports:
+      - 8419:80
+    volumes:
+      - ./:/var/www/html/wp-content/plugins/ng-word-games
+       
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - WORDPRESS_DB_HOST=db 
+      - WORDPRESS_DB_USER=ngwordgames
+      - WORDPRESS_DB_PASSWORD=ngwordgames
+      - WORDPRESS_DB_NAME=ngwordgames
+ 
+
+volumes:
+  db_data:
